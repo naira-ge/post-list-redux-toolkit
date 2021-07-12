@@ -1,0 +1,21 @@
+.columnContainer{
+    flex-grow:1;
+    padding:.2rem 1rem;
+    border-right: 2px solid grey;
+    background-color:white;
+    border-radius:.4rem;
+
+    &:last-child{
+        border-right: none;
+    }
+}
+
+.columnSorter{
+    display:flex;
+    justify-content:space-between;
+    align-items: center;
+    padding-bottom: 1rem;
+    color:rgb(35, 40, 97);
+    cursor: pointer;
+}
+

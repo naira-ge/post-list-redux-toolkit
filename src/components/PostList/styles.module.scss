@@ -1,0 +1,50 @@
+.postsContainer{
+    background-color: rgba(34, 30, 30, 0.4);
+    border-radius: .4rem;
+    padding: 1rem;
+    margin:1rem;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.3);
+}
+
+.postContentContainer{
+    border-radius:.3rem;
+}
+
+.postsDetails{
+    margin-bottom: .7rem;
+}
+
+.commentDetails{
+    border: 1px solid grey;
+    border-radius:.3rem;
+    background-color:white;
+    padding:0;
+    color:rgb(34, 25, 25);
+}
+
+.commentRate{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.postContainer {
+    margin-bottom: .4rem;
+}
+
+.pagination{
+    align-self: center;
+    margin-bottom:.5rem;
+    color:rgb(39, 36, 36);
+
+    span{
+        padding-right: .4rem;
+    }
+
+    .selectedPage{
+        font-weight: bold;
+        border-bottom: 1px solid rgb(39, 36, 36);
+    }
+}

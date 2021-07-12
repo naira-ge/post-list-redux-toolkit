@@ -1,0 +1,14 @@
+.commentContainer{
+    padding: .1rem;
+    display: flex;
+    flex-flow: column nowrap;
+    background-color:white;
+    border-radius:.4rem;
+    margin-bottom: 1px;
+
+    .commentTitle{
+        color:grey;
+        font-weight: 300;
+        font-size: .6rem;
+    }
+}
