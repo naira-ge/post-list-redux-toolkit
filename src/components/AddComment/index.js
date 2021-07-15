@@ -1,19 +1,17 @@
 import React from 'react';
 import styles from './styles.module.scss';
-import {useState} from 'react';
+
 
 const AddComment = (props) => {
-    //console.log('addcomment props', props);
-
 
     return (
         <form id = {props.id}
-            onSubmit = {(e) => props.handleCreateNewComment(e, props.id)} 
+            onSubmit = {(e) => props.handleCreateNewComment(e, props.postId, props.index)} 
             className = {styles.addForm}>
             <input
-                onChange = {(e) =>  props.handleNewCommentInput(e, props.id)}
+                onChange = {(e) =>  props.handleNewCommentInput(e.currentTarget.value, props.postId, props.index)}
                 className = {styles.commentInput} 
-                value = {props.newCommentInput}
+                value = {props.value}
                 placeholder = "Add comment"
                 type = "text" />
             <input 

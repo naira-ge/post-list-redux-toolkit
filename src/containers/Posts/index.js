@@ -7,16 +7,17 @@ import AddComment from '../../components/AddComment/index';
 import Rate from '../../components/Rate/index';
 import styles from './styles.module.scss';
 
+import { withPosts } from '../../features/posts/reselect';
+
 import {
     createPostActionCreator,
     createCommentActionCreator,
-    togglePostActionCreator,
-  } from './postsSlice';
+  } from '../../features/posts/postsSlice';
 
 
 const Posts = () => {
     const dispatch = useDispatch();
-    const posts = useSelector((state) => state.posts);
+    const posts = useSelector((state) => withPosts(state.posts));
     const selectedPostId = useSelector((state) => state.selectedPost);
   
     const [newPostInput, setNewPostInput] = useState("");
@@ -44,20 +45,22 @@ const Posts = () => {
     };
 
     //new comment create
-    const handleNewCommentInput = (e, postId) => { 
-      const newComment = posts.filter(post => post.id === postId);
-      if(newComment) {
-        setNewCommentInput(e.target.value); 
+    const handleNewCommentInput = (value, postId, index) => { 
+      const postNewComment = posts.find(post => post.id === postId);
+      console.log("newComment", "value", value, postNewComment);
+
+      if(postNewComment) {
+        setNewCommentInput(value); 
       }
     };
 
-    const handleCreateNewComment = (e, postId) => {
+    const handleCreateNewComment = (e, postId, index) => {
       e.preventDefault();
       if(!newCommentInput.length) return;
 
-      const newComment = posts.filter(post => post.id === postId);
+      const newComment = posts.find(post => post.id === postId);
       if(newComment) {
-        dispatch(createCommentActionCreator({text: newCommentInput,  postId}));
+        dispatch(createCommentActionCreator({text: newCommentInput,  id: postId, postIndex: index}));
         setNewCommentInput("");
       }
     };
@@ -67,15 +70,6 @@ const Posts = () => {
         addPostRef.current.focus();
       }
     }, [isAddPostMode]);
-  
-    const handleTogglePost = () => {
-      if(!selectedPostId || !selectedPost) return;
-  
-      dispatch(togglePostActionCreator({
-        id: selectedPostId, 
-        isComplete:!selectedPost.isComplete,
-      }))
-    }
 
 
     return (
@@ -95,26 +89,26 @@ const Posts = () => {
                 />
             </form>
             <div className={styles.postContentContainer}>
-                {posts.filter(post => !post.isComplete).map((post) => {
+                {posts.map((post, index) => {
                 return(
                 <div className = {styles.postContainer} key = {post.id}>
                   <PostContent  
-                  post = {post}
-                  handleTogglePost = {handleTogglePost}/>
+                  post = {post} />
                 <div className={styles.commentDetails} >
-                  {post.comments.map((comment) => {
+                  {/*post.comments.map((comment) => {
                     return (
                             <div className={styles.commentRate} key = {comment.comment_id}>
                                 <Comment comment = {comment.text}/>
                                 <Rate rate = {comment.rate} />
                             </div>
                         
-                    )})}
-                  <AddComment 
-                            id = {post.id}
+                    )})*/}
+                  <AddComment
+                            index =  {index} 
+                            postId = {post.id}
                             handleNewCommentInput = {handleNewCommentInput}
                             handleCreateNewComment = {handleCreateNewComment}
-                            newCommentInput = {newCommentInput} />
+                            value = {newCommentInput} />
                 </div>
               </div>)
               })}

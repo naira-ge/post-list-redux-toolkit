@@ -5,7 +5,7 @@ body {
       sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background: linear-gradient(180deg, #4d3afd8f 0%, #6fe5faf6 100%);
+    background: linear-gradient(180deg, #88ecfdf6 0%, #3e29fab0 100%);
     background-repeat: no-repeat;
     min-height:100vh;
   }
@@ -19,12 +19,12 @@ body {
   }
 
   body::-webkit-scrollbar-thumb {
-    background-color:rgb(140, 140, 180);
-    border:1px solid grey;
+    background-color:rgba(170, 170, 201, 0.911);
+    border:1px solid lightgray;
     border-radius: 10px;
 
     &:hover {
-      background-color:rgb(109, 109, 128);
+      background-color:rgb(135, 135, 173);
     }
   }
   

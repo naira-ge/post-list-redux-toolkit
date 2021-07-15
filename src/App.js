@@ -1,10 +1,9 @@
 import Searchbar from './components/Searchbar/index';
-import Posts from './features/posts/Posts';
-import SelectedPost from './features/selectedPost/SelectedPost';
+import Posts from './containers/Posts/index';
+import SelectedPost from './containers/SelectedPost/index';
 import styles from './style/styles.module.scss';
 
 const App = () => {
-
   return (
     <>
       <header>

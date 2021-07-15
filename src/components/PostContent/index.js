@@ -8,8 +8,9 @@ const PostContent = (props) => {
             <div className = {styles.postContent}>
                 <div className = {styles.contentInfo}>
                 <p>{props.post.desc}</p> 
-                </div>    
-                <span onClick={() => props.handleTogglePost(props.post.id)}>
+                </div> 
+                <span>{props.postAver}</span>   
+                <span className = {styles.toggle} onClick={() => props.handleTogglePost(props.post.id)}>
                 <FaMinus />
                 </span>
             </div>

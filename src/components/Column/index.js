@@ -8,14 +8,17 @@ const Column = (props) => {
     return (
         <div className = {styles.columnContainer}>
             <div className = {styles.columnSorter}>
-                {props.sortUp ? <FaSortAlphaDown /> : <FaSortAlphaUpAlt /> }
+                {props.sortUp ? <FaSortAlphaDown onClick = {() => props.setSort("asc")}/> : <FaSortAlphaUpAlt /> }
                 <span >
-                <FaPlus onClick={() => props.handleSelectPost()}/>
+                <FaPlus onClick={() => props.handleSelectPost(props.columnId)}/>
                 </span>
             </div>
             <div>
-                {props.selectedPost === null ? (<span>Select Post</span>) : 
-                props.post.map((post) => <PostContent key = {post.id} post = {post} handleTogglePost = {props.handleTogglePost}/> )}
+                {props.post && props.post.map((post) => <PostContent 
+                                                    key = {post.id} 
+                                                    post = {post} 
+                                                    postAver = {props.postAver}
+                                                    handleTogglePost = {props.handleTogglePost}/> )}
             </div>
         </div>
     )

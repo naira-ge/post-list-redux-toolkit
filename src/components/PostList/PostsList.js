@@ -6,7 +6,8 @@ import Rate from '../../components/Rate/index';
 import styles from './styles.module.scss';
 
 const PostsList = (props) => {
-    console.log("postList", props)
+    
+
     return (
         <div className = {styles.postsContainer}>
             <div className = {styles.pagination}>

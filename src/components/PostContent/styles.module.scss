@@ -16,10 +16,16 @@
 }
 
 .contentInfo{
-    color:rgb(35, 40, 97);;
+    color:rgb(40, 40, 53);
 
     p, h4 { 
         padding:0;
         margin: 0.1rem;
+        font-weight:600;
     }
+}
+
+.toggle {
+    color:rgb(40, 40, 53);
+    font-weight:600;
 }
